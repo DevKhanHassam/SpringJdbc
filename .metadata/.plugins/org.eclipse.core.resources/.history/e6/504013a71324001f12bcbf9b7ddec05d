@@ -1,0 +1,35 @@
+package com.JdbcBeanPropertyRowMapper.JdbcBeanPropertyRowMapper;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import Dao.DaoStudent;
+import Dto.Student;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+       
+    	ApplicationContext context = new AnnotationConfigApplicationContext(Configure.class);
+    	
+    	
+    	DaoStudent dao = context.getBean("daoStudent", DaoStudent.class);
+    	Student student = new Student();
+    	
+    	
+    	student.setRollNo(1);
+    	student.setStudentName("Hassam");
+    	student.setStudentAddress("Haus I");
+    	
+    	
+    	dao.insert(student);
+    	
+    	
+    	((AnnotationConfigApplicationContext) context).close();
+    	
+    	
+    	
+    	
+    }
+}

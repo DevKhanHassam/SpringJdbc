@@ -1,0 +1,5 @@
+package com.JdbcBeanPropertyRowMapper.JdbcBeanPropertyRowMapper;
+
+public class Configure {
+
+}

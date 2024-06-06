@@ -1,0 +1,33 @@
+package com.Jdbc.com.Jdbc.Practice;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import DAO.Query;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        
+        
+       ApplicationContext context = new ClassPathXmlApplicationContext("com/Jdbc/com/Jdbc/Practice/configure.xml");      
+       Query bean = context.getBean("myQuery", Query.class);
+        
+       
+       Student_DTO student = new Student_DTO();
+       
+       student.setId(0);
+       student.setName("Mallu");
+       student.setAddress("Karachi");
+      
+       
+       bean.select(student);
+        
+      
+    
+       
+//       ((ClassPathXmlApplicationContext)context).close();
+        
+    }
+}

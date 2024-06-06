@@ -1,0 +1,29 @@
+package com.JdbcWithoutXml.com.JdcbcWithouXml;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import DAO.Query;
+
+public class App {
+	public static void main(String[] args) {
+		
+		
+		
+		ApplicationContext context = new  AnnotationConfigApplicationContext(Configure.class);
+		
+		Student_DTO studentObj = context.getBean(Student_DTO.class);
+		studentObj.setId(171);
+		studentObj.setName("Hassam");
+		studentObj.setAddress("Riyadh");
+		
+		
+		
+		Query queryObj = context.getBean(Query.class);
+		
+		queryObj.selectAllData();
+	
+		
+
+	}
+}

@@ -1,0 +1,15 @@
+package Dao;
+
+import java.util.ArrayList;
+
+import Dto.Student;
+
+public interface Dao {
+	
+	public int insert(Student student);
+	
+	public int insertAll(ArrayList<Student> student);
+	
+	public void clearData();
+
+}

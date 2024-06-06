@@ -1,0 +1,11 @@
+package Dao;
+
+import Dto.Student;
+
+public interface Dao {
+	
+	public int insert(Student student);
+	
+	
+
+}

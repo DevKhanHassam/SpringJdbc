@@ -1,0 +1,25 @@
+package DAO;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.RowMapper;
+
+import com.JdbcWithoutXml.com.JdcbcWithouXml.Student_DTO;
+
+public class RowMapperImp  implements RowMapper<Student_DTO>
+
+{
+	@Autowired
+	Student_DTO student_DTO;
+	
+	public Student_DTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+		
+		student_DTO.setId(rs.getInt(1));
+		student_DTO.setName(rs.getString(1));
+		student_DTO.setAddress(rs.getString(2));
+		return student_DTO;
+	}
+
+}
