@@ -13,7 +13,6 @@ public interface Dao {
 	
 	public int clearData();
 	public Boolean deleteById(int i);
-	public int  deleteByName(String name);
 	
 	public Student selectById(int i);
 	public List<Student> selectAll();

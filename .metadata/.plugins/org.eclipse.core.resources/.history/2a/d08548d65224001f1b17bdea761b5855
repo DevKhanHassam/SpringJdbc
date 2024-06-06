@@ -61,7 +61,6 @@ public class App
 //    	dao.selectAll();
 //    	dao.updateNameById(5, "Sheishe");
 //    	dao.deleteById(3);
-//    	dao.deleteByName("Hassam");
 
  
     	

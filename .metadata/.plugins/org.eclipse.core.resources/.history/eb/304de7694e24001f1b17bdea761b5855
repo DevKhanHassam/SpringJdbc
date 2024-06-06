@@ -83,7 +83,6 @@ public class DaoStudent extends Thread implements Dao {
 				return 0;
 			}
 			System.out.println(update+" rows deleted");
-			selectAll();
 			return update;
 		} catch (Exception e) {
 			return 0;

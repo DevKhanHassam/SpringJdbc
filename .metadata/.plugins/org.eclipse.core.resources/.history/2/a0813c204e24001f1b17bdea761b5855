@@ -45,23 +45,12 @@ public class App
     	
     	dao.insertAll(studentList);
     	
-    	
-    	
-    	Student student3 = new Student();
-    	student3.setRollNo(10);
-    	student3.setStudentAddress("Karachi");
-    	student3.setStudentName("hassam");
-    	
-    	dao.insert(student3);
   
     	dao.selectAll();
-
-    	
 //    	dao.selectById(5);
 //    	dao.selectAll();
-//    	dao.updateNameById(5, "Sheishe");
+    	dao.updateNameById(5, "Sheishe");
 //    	dao.deleteById(3);
-//    	dao.deleteByName("Hassam");
 
  
     	

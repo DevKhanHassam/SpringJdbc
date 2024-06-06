@@ -72,7 +72,7 @@ public class DaoStudent extends Thread implements Dao {
 
 	}
 
-	public int deleteByName(String name)
+	public Boolean deleteByName(String name)
 	{
 		try {
 			String sql="delete from studenttable where StudentName=?";
@@ -83,10 +83,9 @@ public class DaoStudent extends Thread implements Dao {
 				return 0;
 			}
 			System.out.println(update+" rows deleted");
-			selectAll();
-			return update;
+			return true;
 		} catch (Exception e) {
-			return 0;
+			// TODO: handle exception
 		}
 	}
 //	BeanPropertyRowMapper  if table column and Dto property name change then use Aliases=(select fname as first_name from customer)
