@@ -47,11 +47,11 @@ public class App
     	
   
     	dao.selectAll();
-//    	dao.selectById(5);
+//    	dao.selectById(2);
 //    	dao.selectAll();
-    	dao.updateNameById(5, "Sheishe");
-//    	dao.deleteById(3);
-
+//    	dao.updateNameById(2, "Sheishe");
+//    	dao.deleteById(2);
+    	
  
     	
     	

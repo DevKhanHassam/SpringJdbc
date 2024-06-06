@@ -49,7 +49,7 @@ public class App
     	dao.selectAll();
 //    	dao.selectById(5);
 //    	dao.selectAll();
-    	dao.updateNameById(5, "Sheishe");
+    	dao.updateNameById(2, "Sheishe");
 //    	dao.deleteById(3);
 
  

@@ -11,7 +11,7 @@ public interface Dao {
 	public void insertAll(ArrayList<Student> student);
 	
 	
-	public int clearData();
+	public void clearData();
 	public Boolean deleteById(int i);
 	
 	public Student selectById(int i);

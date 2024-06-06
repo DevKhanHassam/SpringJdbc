@@ -42,17 +42,16 @@ public class DaoStudent extends Thread implements Dao {
 			args.add(studentdata);
 		}
 
-		 jdbcTemplate.batchUpdate(sql, args);
+		jdbcTemplate.batchUpdate(sql, args);
 
 		System.out.println("BatchUpdate successfully done");
 	}
 
-	public int clearData() {
+	public void clearData() {
 
 		String sql = "TRUNCATE TABLE studenttable";
-		int update = jdbcTemplate.update(sql);
-		System.out.println(update+" row(s) has been deleted");
-		return update;
+		jdbcTemplate.update(sql);
+		System.out.println("Data has been deleted");
 
 	}
 
@@ -107,7 +106,7 @@ public class DaoStudent extends Thread implements Dao {
 		} catch (Exception e) {
 			
 			System.out.println(e);
-			return new  ArrayList<Student>();
+			return new  List<Student>();
 
 		}
 

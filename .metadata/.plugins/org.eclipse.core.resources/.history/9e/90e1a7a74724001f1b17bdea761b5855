@@ -42,17 +42,16 @@ public class DaoStudent extends Thread implements Dao {
 			args.add(studentdata);
 		}
 
-		 jdbcTemplate.batchUpdate(sql, args);
+		jdbcTemplate.batchUpdate(sql, args);
 
 		System.out.println("BatchUpdate successfully done");
 	}
 
-	public int clearData() {
+	public void clearData() {
 
 		String sql = "TRUNCATE TABLE studenttable";
-		int update = jdbcTemplate.update(sql);
-		System.out.println(update+" row(s) has been deleted");
-		return update;
+		jdbcTemplate.update(sql);
+		System.out.println("Data has been deleted");
 
 	}
 
@@ -85,30 +84,19 @@ public class DaoStudent extends Thread implements Dao {
 		}
 
 		catch (Exception e) {
-			System.out.println("Invalid RollNo to selectById");
+			System.out.println("Invalid RollNo");
 			return null;
 		}
 	}
 
 //	BeanPropertyRowMapper if table column and Dto property name change then use Aliases=(select fname as first_name from customer)
-	public List<Student> selectAll() {
+	public void selectAll() {
 
-		try {
+		String sql = "Select * from studenttable";
+		List<Student> studentData = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Student>(Student.class));
 
-			String sql = "Select * from studenttable";
-			List<Student> studentData = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Student>(Student.class));
-
-			for (Student x : studentData) {
-				System.out.println(x);
-			}
-			
-			return studentData;
-
-		} catch (Exception e) {
-			
-			System.out.println(e);
-			return new  ArrayList<Student>();
-
+		for (Student x : studentData) {
+			System.out.println(x);
 		}
 
 	}
@@ -117,21 +105,24 @@ public class DaoStudent extends Thread implements Dao {
 
 		try {
 
-			if (selectById(i) == null) {
-				System.out.println("Invalid RollNo to UpdateById");
-				return 0;
-			} else {
-				System.out.println("Old Record");
-				selectById(i);
-				String sql = "update studenttable set StudentName= ? where RollNo = ?";
-				int update = jdbcTemplate.update(sql, name, i);
-				System.out.println(update + " Name updated");
-
-				System.out.println("New Record");
-				selectById(i);
-				return update;
+				if(selectById(i)==null)
+				{
+					System.out.println("Invalid RollNo");
+					return 0;
+				}
+				else 
+				{
+					System.out.println("Old Record");
+					selectById(i);
+					String sql = "update studenttable set StudentName= ? where RollNo = ?";
+					int update = jdbcTemplate.update(sql, name, i);
+					System.out.println(update + " Name updated");
+			
+					System.out.println("New Record");
+					selectById(i);
+					return update;
+				}
 			}
-		}
 
 		catch (Exception e) {
 			System.out.println(e);
