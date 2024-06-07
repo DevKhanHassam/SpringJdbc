@@ -18,6 +18,8 @@ public class Query {
 	@Autowired
 	RowMapperImp obj;
 	
+	
+//	ResultSetExtractor
 	@Autowired        // use of 
 	ResultSetExtractorImp obj2;
 

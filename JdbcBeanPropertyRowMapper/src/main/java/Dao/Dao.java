@@ -2,6 +2,7 @@ package Dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import Dto.Student;
 
@@ -19,5 +20,7 @@ public interface Dao {
 	public List<Student> selectAll();
 	
 	public int updateNameById(int i, String name);
+	
+	public Map<String, List<String> > studentCustomTable();
 
 }

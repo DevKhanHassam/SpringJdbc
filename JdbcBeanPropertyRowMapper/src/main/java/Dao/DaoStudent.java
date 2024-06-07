@@ -2,6 +2,7 @@ package Dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -15,6 +16,9 @@ public class DaoStudent extends Thread implements Dao {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+
+	@Autowired
+	MycustomResultSetExtractor resultSetExtractor;
 
 	public int insert(Student obj)
 
@@ -155,6 +159,23 @@ public class DaoStudent extends Thread implements Dao {
 			return 0;
 		}
 
+	}
+
+	
+//	Custom ResultSetExtractor
+	@Override
+	public Map<String, List<String>> studentCustomTable() {
+		
+		String sql="select * from studenttable";
+		Map<String, List<String>> studentMap = jdbcTemplate.query(sql, resultSetExtractor );
+		
+		for(Map.Entry<String, List<String>> x: studentMap.entrySet())
+		{
+			System.out.println(x.getKey()+" list= "+x.getValue());
+		}
+		
+		
+		return studentMap;
 	}
 
 }
