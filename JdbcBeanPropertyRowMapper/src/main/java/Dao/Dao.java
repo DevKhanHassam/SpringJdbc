@@ -22,5 +22,7 @@ public interface Dao {
 	public int updateNameById(int i, String name);
 	
 	public Map<String, List<String> > studentCustomTable();
+	
+	public int BatchUpdate(List<Student> student);
 
 }

@@ -19,9 +19,6 @@ public class MycustomResultSetExtractor implements ResultSetExtractor<Map<String
 		
 		Map<String, List<String>> studentMap = new HashMap<>();
 		
-		
-		
-		
 		while(rs.next())
 		{
 			List<String> studentName = new ArrayList<>();

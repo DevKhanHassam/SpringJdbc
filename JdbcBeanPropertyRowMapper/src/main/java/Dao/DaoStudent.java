@@ -1,13 +1,18 @@
 package Dao;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import Dto.Student;
 
@@ -178,4 +183,73 @@ public class DaoStudent extends Thread implements Dao {
 		return studentMap;
 	}
 
+	
+	
+	@Transactional(propagation = Propagation.MANDATORY, rollbackFor = Exception.class)
+	public int BatchUpdate(List<Student> student) 
+	{
+		try {
+
+			String sql="update studenttable set StudentAddress=? where RollNo=?";
+			int[] batchUpdateCount = jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() 
+			{
+				
+				@Override
+				public void setValues(PreparedStatement ps, int i) throws SQLException 
+				{	
+					ps.setString(1, student.get(i).getStudentAddress());
+					ps.setInt(2, student.get(i).getRollNo());	
+					
+				}
+				
+				@Override
+				public int getBatchSize() 
+				{
+					
+					return student.size();
+				}
+			} );
+		
+			
+			selectAll();
+			
+			int counter=0;
+			for(int i=0; i<batchUpdateCount.length;i++)
+			{
+				if (batchUpdateCount[i]==1)
+				{counter++;}
+			}
+			
+			return counter;
+		    }
+		 catch (Exception e) {
+			// TODO: handle exception
+			 return 0;
+		}
+		
+	}
+	
+
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

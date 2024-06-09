@@ -1,6 +1,7 @@
 package com.JdbcBeanPropertyRowMapper.JdbcBeanPropertyRowMapper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -57,17 +58,44 @@ public class App
     	dao.selectAll();
     	System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     	
-    	dao.studentCustomTable();
-
     	
+    	
+    	
+    	
+
 //    	dao.selectById(5);
 //    	dao.selectAll();
 //    	dao.updateNameById(5, "Sheishe");
 //    	dao.deleteById(3);
 //    	dao.deleteByName("Hassam");
-
+//    	dao.studentCustomTable();
  
+    	  
     	
+//    	Below code to enter to enter obj in list to pass the list in batchUpdate()
+//
+//    	List<Student> updateStudentList =new  ArrayList<>();
+//    	
+//        Student student4 = new Student();
+//   	
+//    	student4.setRollNo(1);
+//    	student4.setStudentName("Hassam");
+//    	student4.setStudentAddress("Haroon");
+//    	
+//    	
+//    	Student student5 = new Student();
+//    	
+//    	student5.setRollNo(2);
+//    	student5.setStudentName("Ali");
+//    	student5.setStudentAddress("Iranjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+//    	
+//    	
+//    	updateStudentList.add(student5);
+//    	updateStudentList.add(student4);
+//    	
+//    	
+//    	
+//    	dao.BatchUpdate(updateStudentList);
     	
    
     	
