@@ -10,8 +10,12 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="obj"/>
+		<item key="selection" value="jstl"/>
 		<list key="findhistory">
+			<item value="jstl"/>
+			<item value="webmvc"/>
+			<item value="web"/>
+			<item value="springcore"/>
 			<item value="obj"/>
 		</list>
 		<list key="replacehistory">

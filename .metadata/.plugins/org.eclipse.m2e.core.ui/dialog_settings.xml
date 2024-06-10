@@ -14,7 +14,7 @@
 		</list>
 	</section>
 	<section name="MavenProjectWizardArchetypePage">
-		<item key="catalog" value="internal"/>
+		<item key="catalog" value="All Catalogs"/>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
@@ -26,16 +26,21 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.Management.StudentMangement"/>
+			<item value="com.Management.StudentManagement"/>
 			<item value="com.JdbcBeanPropertyRowMapper.JdbcBeanPropertyRowMapper"/>
 			<item value="com.JdbcWithoutXml.com.JdcbcWithouXml"/>
 			<item value="com.Jdbc.com.Jdbc.Practice"/>
 		</list>
 		<list key="groupId">
+			<item value="com.Management"/>
 			<item value="com.JdbcBeanPropertyRowMapper"/>
 			<item value="com.JdbcWithoutXml"/>
 			<item value="com.Jdbc"/>
 		</list>
 		<list key="artifactId">
+			<item value="StudentMangement"/>
+			<item value="StudentManagement"/>
 			<item value="JdbcBeanPropertyRowMapper"/>
 			<item value="com.JdcbcWithouXml"/>
 			<item value="com.Jdbc.Practice"/>
