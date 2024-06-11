@@ -12,4 +12,6 @@ public interface QueryInterface {
 	
 	public void addStudent(DtoStudent dtoStudent);
 	public int deleteStudent(int x);
+	public void updateStudent(int id, String name , String address);
+	public Student getStudentById(int id);
 }

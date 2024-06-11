@@ -12,7 +12,7 @@
 
 <h1>Update student Record</h1>
 
-<form:form action="saveData" method="post" modelAttribute="dtoStudent" >
+<form:form action="updateData" method="post" modelAttribute="dtoStudent" >
 
 		<div>
 		<label>Student RollNo</label>

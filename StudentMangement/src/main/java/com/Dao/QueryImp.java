@@ -14,6 +14,9 @@ import Pojo.Student;
 @Repository
 @Transactional
 public class QueryImp  implements QueryInterface{
+	
+	@Autowired
+	StudentRowMapper rowMapper;
 
 	@Autowired
 	JdbcTemplate jdbctemplate;
@@ -49,5 +52,25 @@ public class QueryImp  implements QueryInterface{
 			
 			return update;
 	}
+
+
+	@Override
+	public Student getStudentById(int id) {
+		
+		String sql="select * from studenttable where RollNo=?";
+		Student studentObject = jdbctemplate.queryForObject(sql,rowMapper,id);
+		return studentObject;
+	}
+
+
+	@Override
+	public void updateStudent(int id, String name, String address) {
+		String sql="update studenttable set StudentName=? , StudentAddress=? where RollNo=?";
+		jdbctemplate.update(sql,name,address,id);
+		
+	}
+
+
+	
 	
 }

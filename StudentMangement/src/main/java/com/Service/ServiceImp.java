@@ -41,4 +41,25 @@ public class ServiceImp implements ServiceInterface {
 		return "redirect:/";
 	}
 
+	@Override
+	public Student getStudentById(int id) {
+		
+		
+		
+		return queryImp.getStudentById(id);
+	}
+
+	
+	public void updateStudent(int id, String name, String address) {
+		
+		queryImp.updateStudent(id, name, address);
+		
+	}
+	
+
+
+	
+	
+	
+
 }

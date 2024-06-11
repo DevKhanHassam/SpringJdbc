@@ -56,20 +56,51 @@ public class MyController
 	
 	
 	@RequestMapping("/deleteStudent")
-	public String deleteStudent(Model model,DtoStudent dtoStudent)
+	public String deleteStudent(Model model,DtoStudent dtoStudent,@RequestParam("rollno") int id)
 	{
-		String pageValueFromService = serviceImp.deleteStudent(dtoStudent.getId());
+		String pageRedirect = serviceImp.deleteStudent(id);
+			return pageRedirect;
+		
+	}
+	
+	
+	
+	
+	@RequestMapping("/deleteStudentById")
+	public String deleteStudentById(DtoStudent dtoStudent,Model model)
+	{
+		String pageRedirect;
+		pageRedirect = serviceImp.deleteStudent(dtoStudent.getId());
 		List<Student> allData = serviceImp.getAllData();
 		model.addAttribute("studentList",allData);
-		return pageValueFromService;
+		return pageRedirect;
 	}
+
+
+	
+	
+	
+	
+	
+	
 	
 	
 	@RequestMapping("/updateStudent")
 	public String updateStudent(DtoStudent dtoStudent, @RequestParam("rollno") int id,Model model ) {
 		model.addAttribute(dtoStudent);
-		
+		Student studentObj=serviceImp.getStudentById(id);
+		dtoStudent.setId(id);
+		dtoStudent.setName(studentObj.getStudentName());
+		dtoStudent.setAddress(studentObj.getStudentAddress());
 		return "updateStudent";
+	}
+	
+	
+	@RequestMapping("/updateData")
+	public String updateStudentData(DtoStudent dtoStudent) {
+		
+		serviceImp.updateStudent(dtoStudent.getId(), dtoStudent.getName(), dtoStudent.getAddress());
+		return "redirect:/";
 	}
 	
 	

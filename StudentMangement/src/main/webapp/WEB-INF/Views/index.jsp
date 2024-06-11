@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="/StudentMangement/static/css/test.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -19,6 +20,7 @@
 				<th>RollNo</th>
 				<th>Name</th>
 				<th>Address</th>
+				<th>Modify Data</th>
 			</tr>
 			<c:forEach var="student" items="${studentList}">
 
@@ -27,6 +29,7 @@
 					<td>${student.studentName}</td>
 					<td>${student.studentAddress}</td>
 					<td> <button><a href="${pageContext.request.contextPath}/updateStudent?rollno=${student.rollNo}">Update</a></button></td>
+					<td> <button><a href="${pageContext.request.contextPath}/deleteStudent?rollno=${student.rollNo}" onclick="if(!(confirm('Are you sure?')))return false">Delete</a></button></td>
 				</tr>
 
 
@@ -36,7 +39,7 @@
 		
 	  <button><a href="addStudent">ADD Student</a></button>
 	  
-	  <form:form action="deleteStudent" method="post" modelAttribute="dtoStudent"  >
+	  <form:form action="deleteStudentById" method="post" modelAttribute="dtoStudent"  >
 	  
 	  	<label>delete id</label>
 	  	<form:input path="id"/>
